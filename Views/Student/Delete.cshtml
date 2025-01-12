@@ -1,0 +1,50 @@
+@model Student
+
+<div class="container mt-5">
+    <div class="card shadow-lg border-0">
+        <div class="card-header bg-gradient-danger text-white">
+            <h2 class="fw-bold mb-0">❗ Confirm Deletion</h2>
+        </div>
+        <div class="card-body">
+            <p class="fs-5 text-muted">
+                Are you sure you want to delete the student <b class="text-danger">@Model.StudentName @Model.StudentSurname</b>?
+            </p>
+            <form asp-action="Delete" method="post">
+                <input type="hidden" name="id" value="@Model.StudentId">
+                <div class="d-flex justify-content-start gap-3">
+                    <button type="submit" class="btn btn-danger px-4 shadow-sm">Yes, Delete</button>
+                    <a asp-action="Index" class="btn btn-outline-secondary px-4 shadow-sm">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<style>
+    .bg-gradient-danger {
+        background: linear-gradient(45deg, #dc3545, #ff6b6b);
+    }
+
+    .btn-danger {
+        background-color: #dc3545;
+        border: none;
+    }
+
+    .btn-danger:hover {
+        background-color: #b02a37;
+    }
+
+    .btn-outline-secondary {
+        border-color: #6c757d;
+        color: #6c757d;
+    }
+
+    .btn-outline-secondary:hover {
+        background-color: #6c757d;
+        color: white;
+    }
+
+    .card {
+        border-radius: 15px;
+    }
+</style>

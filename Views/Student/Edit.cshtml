@@ -1,0 +1,101 @@
+@model Student
+
+<div class="container mt-5">
+    <div class="card shadow-lg border-0">
+        <div class="card-header bg-gradient-primary text-white d-flex justify-content-between align-items-center">
+            <h2 class="fw-bold mb-0">✏️ Update Student</h2>
+            <a href="/Student" class="btn btn-outline-light btn-sm">Back to Students</a>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-lg-8">
+                    <form asp-controller="Student" asp-action="Edit" method="post">
+                        <div asp-validation-summary="All" class="shadow-sm mb-3"></div>
+                        <input type="hidden" asp-for="StudentId">
+
+                        <div class="mb-4">
+                            <label asp-for="StudentName" class="form-label fw-bold text-primary">Student Name</label>
+                            <input asp-for="StudentName" class="form-control shadow-sm border-primary">
+                        </div>
+
+                        <div class="mb-4">
+                            <label asp-for="StudentSurname" class="form-label fw-bold text-primary">Student Surname</label>
+                            <input asp-for="StudentSurname" class="form-control shadow-sm border-primary">
+                        </div>
+
+                        <div class="mb-4">
+                            <label asp-for="Email" class="form-label fw-bold text-primary">Email</label>
+                            <input asp-for="Email" class="form-control shadow-sm border-primary">
+                        </div>
+
+                        <div class="mb-4">
+                            <label asp-for="Phone" class="form-label fw-bold text-primary">Phone</label>
+                            <input asp-for="Phone" class="form-control shadow-sm border-primary">
+                        </div>
+
+                        <div class="d-flex justify-content-end">
+                            <button type="submit" class="btn btn-gradient-primary shadow-sm px-4">💾 Save</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="col-lg-4">
+                    <h4 class="fw-bold text-primary mb-3">Courses</h4>
+                    <div class="list-group shadow-sm">
+                        @if (Model.CourseRegistrations.Any())
+                        {
+                            @foreach (var item in @Model.CourseRegistrations)
+                            {
+                                <div class="list-group-item d-flex justify-content-between align-items-center">
+                                    @item.Course.CourseName
+                                    <span class="badge bg-primary rounded-pill">📘</span>
+                                </div>
+                            }
+                        }
+                        else
+                        {
+                            <div class="list-group-item text-center text-muted">No courses assigned</div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .btn-gradient-primary {
+        background: linear-gradient(45deg, #007bff, #00c6ff);
+        color: white;
+        border: none;
+        font-size: 1.1rem;
+    }
+
+    .btn-gradient-primary:hover {
+        background: linear-gradient(45deg, #0056b3, #00a3cc);
+        color: white;
+    }
+
+    .bg-gradient-primary {
+        background: linear-gradient(45deg, #1d78d2, #47b8e0);
+    }
+
+    .card {
+        border-radius: 15px;
+    }
+
+    .list-group-item {
+        background: #f9f9f9;
+        border: none;
+        border-radius: 10px;
+        margin-bottom: 8px;
+    }
+
+    .list-group-item:last-child {
+        margin-bottom: 0;
+    }
+
+    .list-group-item:hover {
+        background: #e9ecef;
+    }
+</style>

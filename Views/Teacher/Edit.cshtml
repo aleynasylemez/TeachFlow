@@ -1,0 +1,67 @@
+@model Teacher
+
+<div class="container mt-5">
+    <div class="card shadow-lg border-0">
+        <div class="card-header bg-gradient-primary text-white d-flex justify-content-between align-items-center">
+            <h2 class="fw-bold mb-0">✏️ Update Teacher</h2>
+            <a href="/Teacher" class="btn btn-outline-light btn-sm">Back to Teachers</a>
+        </div>
+        <div class="card-body">
+            <form asp-controller="Teacher" asp-action="Edit" method="post">
+                <div asp-validation-summary="All" class="shadow-sm mb-3"></div>
+                <input type="hidden" asp-for="TeacherId">
+
+                <div class="mb-4">
+                    <label asp-for="TeacherName" class="form-label fw-bold text-primary">Teacher Name</label>
+                    <input asp-for="TeacherName" class="form-control shadow-sm border-primary">
+                </div>
+
+                <div class="mb-4">
+                    <label asp-for="TeacherSurname" class="form-label fw-bold text-primary">Teacher Surname</label>
+                    <input asp-for="TeacherSurname" class="form-control shadow-sm border-primary">
+                </div>
+
+                <div class="mb-4">
+                    <label asp-for="Email" class="form-label fw-bold text-primary">Email</label>
+                    <input asp-for="Email" class="form-control shadow-sm border-primary">
+                </div>
+
+                <div class="mb-4">
+                    <label asp-for="Phone" class="form-label fw-bold text-primary">Phone</label>
+                    <input asp-for="Phone" class="form-control shadow-sm border-primary">
+                </div>
+
+                <div class="mb-4">
+                    <label asp-for="StartDate" class="form-label fw-bold text-primary">Start Date</label>
+                    <input asp-for="StartDate" class="form-control shadow-sm border-primary" type="date">
+                </div>
+
+                <div class="d-flex justify-content-end">
+                    <button type="submit" class="btn btn-gradient-primary shadow-sm px-4">💾 Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<style>
+    .btn-gradient-primary {
+        background: linear-gradient(45deg, #007bff, #00c6ff);
+        color: white;
+        border: none;
+        font-size: 1.1rem;
+    }
+
+    .btn-gradient-primary:hover {
+        background: linear-gradient(45deg, #0056b3, #00a3cc);
+        color: white;
+    }
+
+    .bg-gradient-primary {
+        background: linear-gradient(45deg, #1d78d2, #47b8e0);
+    }
+
+    .card {
+        border-radius: 15px;
+    }
+</style>

@@ -1,0 +1,59 @@
+@model Teacher
+
+<div class="container mt-5">
+    <div class="card shadow-sm">
+        <div class="card-header bg-gradient-primary text-white">
+            <h2 class="fw-bold mb-0">👨‍🏫 Add Teacher</h2>
+        </div>
+        <div class="card-body">
+            <form asp-controller="Teacher" asp-action="Create" method="post">
+                <div class="mb-3">
+                    <label asp-for="TeacherName" class="form-label">Teacher Name</label>
+                    <input asp-for="TeacherName" class="form-control shadow-sm">
+                </div>
+                <div class="mb-3">
+                    <label asp-for="TeacherSurname" class="form-label">Teacher Surname</label>
+                    <input asp-for="TeacherSurname" class="form-control shadow-sm">
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Email" class="form-label">Email</label>
+                    <input asp-for="Email" class="form-control shadow-sm">
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Phone" class="form-label">Phone</label>
+                    <input asp-for="Phone" class="form-control shadow-sm">
+                </div>
+                <div class="mb-3">
+                    <label asp-for="StartDate" class="form-label">Start Date</label>
+                    <input asp-for="StartDate" class="form-control shadow-sm" type="date">
+                </div>
+
+                <div class="d-flex justify-content-end">
+                    <button type="submit" class="btn btn-gradient-primary shadow-sm">💾 Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<style>
+    .btn-gradient-primary {
+        background: linear-gradient(45deg, #1d78d2, #47b8e0);
+        color: white;
+        border: none;
+    }
+
+    .btn-gradient-primary:hover {
+        background: linear-gradient(45deg, #1663a8, #379db6);
+        color: white;
+    }
+
+    .bg-gradient-primary {
+        background: linear-gradient(45deg, #1d78d2, #47b8e0);
+    }
+
+    .card {
+        border: none;
+        border-radius: 10px;
+    }
+</style>

@@ -1,0 +1,22 @@
+# Ignore build output and packages
+bin/
+obj/
+*.db
+*.log
+
+# User-specific files
+*.user
+*.vs
+.vscode/
+
+# Environment-specific settings
+appsettings.Development.json
+appsettings.*.json
+
+
+# Secrets and configuration files
+secrets.json
+
+# Logs
+logs/
+*.log

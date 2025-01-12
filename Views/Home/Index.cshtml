@@ -1,0 +1,104 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container-fluid vh-100 d-flex flex-column justify-content-center">
+    <div class="row align-items-center h-100">
+        <div class="col-lg-12">
+            <div class="card shadow-lg border-0 h-100">
+                <div class="card-header bg-gradient-primary text-white text-center">
+                    <h1 class="fw-bold mb-0">🌟 Welcome to the Course Management System</h1>
+                </div>
+                <div class="card-body d-flex flex-column justify-content-center">
+                    <p class="fs-4 text-muted mb-4 text-center">
+                        Simplify education management with a modern, intuitive platform for courses, students, teachers, and registrations.
+                    </p>
+                    <div class="d-flex justify-content-center gap-4 flex-wrap">
+                        <a href="/Course" class="btn btn-gradient-primary shadow-lg px-5 py-3 fw-bold rounded-pill">📘 Courses</a>
+                        <a href="/Student" class="btn btn-gradient-secondary shadow-lg px-5 py-3 fw-bold rounded-pill">👩‍🎓 Students</a>
+                        <a href="/Teacher" class="btn btn-gradient-tertiary shadow-lg px-5 py-3 fw-bold rounded-pill">👨‍🏫 Teachers</a>
+                        <a href="/CourseRegistration" class="btn btn-gradient-quaternary shadow-lg px-5 py-3 fw-bold rounded-pill">📝 Registrations</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .btn-gradient-primary {
+        background: linear-gradient(45deg, #007bff, #00c6ff);
+        color: white;
+        border: none;
+        font-size: 1.2rem;
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn-gradient-primary:hover {
+        background: linear-gradient(45deg, #0056b3, #00a3cc);
+        color: white;
+        transform: scale(1.1);
+        box-shadow: 0 8px 20px rgba(0, 123, 255, 0.5);
+    }
+
+    .btn-gradient-secondary {
+        background: linear-gradient(45deg, #28a745, #85d96c);
+        color: white;
+        border: none;
+        font-size: 1.2rem;
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn-gradient-secondary:hover {
+        background: linear-gradient(45deg, #218838, #77c960);
+        color: white;
+        transform: scale(1.1);
+        box-shadow: 0 8px 20px rgba(40, 167, 69, 0.5);
+    }
+
+    .btn-gradient-tertiary {
+        background: linear-gradient(45deg, #ffc107, #ffecb5);
+        color: white;
+        border: none;
+        font-size: 1.2rem;
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn-gradient-tertiary:hover {
+        background: linear-gradient(45deg, #e0a800, #ffe599);
+        color: white;
+        transform: scale(1.1);
+        box-shadow: 0 8px 20px rgba(255, 193, 7, 0.5);
+    }
+
+    .btn-gradient-quaternary {
+        background: linear-gradient(45deg, #6f42c1, #d1b3f9);
+        color: white;
+        border: none;
+        font-size: 1.2rem;
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn-gradient-quaternary:hover {
+        background: linear-gradient(45deg, #5a2c9d, #c49ef6);
+        color: white;
+        transform: scale(1.1);
+        box-shadow: 0 8px 20px rgba(111, 66, 193, 0.5);
+    }
+
+    .bg-gradient-primary {
+        background: linear-gradient(45deg, #1d78d2, #47b8e0);
+    }
+
+    .card {
+        border-radius: 20px;
+    }
+
+    .card-header {
+        padding: 2rem;
+    }
+
+    .card-body {
+        padding: 3rem;
+    }
+</style>

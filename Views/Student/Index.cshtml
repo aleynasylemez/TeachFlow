@@ -1,0 +1,73 @@
+@model IEnumerable<Student>
+
+<div class="container mt-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="text-primary fw-bold">👩‍🎓 Student List</h1>
+        <a href="/Student/Create" class="btn btn-md btn-gradient-primary shadow-sm">➕ Create Student</a>
+    </div>
+
+    <form method="get" action="">
+        <div class="d-flex justify-content-start align-items-center mb-3">
+            <input type="search" name="searchString" class="form-control w-50 shadow-sm"
+                placeholder="🔍 Search students..." value="@ViewBag.searchString">
+            <button type="submit" class="btn btn-primary ms-2">Search</button>
+            <a href="/Student" class="btn btn-outline-secondary ms-2">Reset</a>
+        </div>
+    </form>
+
+    <div class="table-responsive shadow-sm rounded">
+        <table class="table table-bordered table-striped table-hover align-middle">
+            <thead class="bg-gradient-dark text-white">
+                <tr>
+                    <th style="width: 150px;">
+                        <i class="bi bi-hash"></i> Student Id
+                    </th>
+                    <th>
+                        <i class="bi bi-person"></i> Student Name
+                    </th>
+                    <th>
+                        <i class="bi bi-person"></i> Student Surname
+                    </th>
+                    <th style="width: 200px; text-align: center;">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var student in @Model)
+                {
+                    <tr class="border-bottom">
+                        <td class="text-center">@Html.DisplayFor(modelStudent => student.StudentId)</td>
+                        <td>@Html.DisplayFor(modelStudent => student.StudentName)</td>
+                        <td>@Html.DisplayFor(modelStudent => student.StudentSurname)</td>
+                        <td class="text-center">
+                            <a asp-controller="Student" asp-action="Edit" asp-route-id="@student.StudentId"
+                                class="btn btn-sm btn-primary">✏️Edit</a>
+                            <a asp-controller="Student" asp-action="Delete" asp-route-id="@student.StudentId"
+                                class="btn btn-sm btn-danger">❌Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<style>
+    .btn-gradient-primary {
+        background: linear-gradient(45deg, #1d78d2, #47b8e0);
+        color: white;
+        border: none;
+    }
+
+    .btn-gradient-primary:hover {
+        background: linear-gradient(45deg, #1663a8, #379db6);
+        color: white;
+    }
+
+    .bg-gradient-dark {
+        background: linear-gradient(45deg, #343a40, #495057);
+    }
+
+    .table-striped tbody tr:hover {
+        background-color: #f8f9fa;
+    }
+</style>

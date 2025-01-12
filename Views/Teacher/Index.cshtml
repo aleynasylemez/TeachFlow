@@ -1,0 +1,77 @@
+@model IEnumerable<Teacher>
+
+<div class="container mt-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="text-primary fw-bold">👨‍🏫 Teacher List</h1>
+        <a href="/Teacher/Create" class="btn btn-md btn-gradient-primary shadow-sm">➕ Create Teacher</a>
+    </div>
+
+    <form method="get" action="">
+        <div class="d-flex justify-content-start align-items-center mb-3">
+            <input type="search" name="searchString" class="form-control w-50 shadow-sm"
+                placeholder="🔍 Search teachers..." value="@ViewBag.SearchString">
+            <button type="submit" class="btn btn-primary ms-2">Search</button>
+            <a href="/Teacher" class="btn btn-outline-secondary ms-2">Reset</a>
+        </div>
+    </form>
+
+    <div class="table-responsive shadow-sm rounded">
+        <table class="table table-bordered table-striped table-hover align-middle">
+            <thead class="bg-gradient-dark text-white">
+                <tr>
+                    <th style="width: 150px;">
+                        <i class="bi bi-hash"></i> @Html.DisplayNameFor(m => m.TeacherId)
+                    </th>
+                    <th>
+                        <i class="bi bi-person"></i> @Html.DisplayNameFor(m => m.TeacherName)
+                    </th>
+                    <th>
+                        <i class="bi bi-person"></i> @Html.DisplayNameFor(m => m.TeacherSurname)
+                    </th>
+                    <th>
+                        <i class="bi bi-calendar"></i> @Html.DisplayNameFor(m => m.StartDate)
+                    </th>
+                    <th style="width: 200px; text-align: center;">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in @Model)
+                {
+                    <tr class="border-bottom">
+                        <td class="text-center">@Html.DisplayFor(modelItem => item.TeacherId)</td>
+                        <td>@Html.DisplayFor(modelItem => item.TeacherName)</td>
+                        <td>@Html.DisplayFor(modelItem => item.TeacherSurname)</td>
+                        <td>@Html.DisplayFor(modelItem => item.StartDate)</td>
+                        <td class="text-center">
+                            <a asp-controller="Teacher" asp-action="Edit" asp-route-id="@item.TeacherId"
+                                class="btn btn-sm btn-primary">✏️Edit</a>
+                            <a asp-controller="Teacher" asp-action="Delete" asp-route-id="@item.TeacherId"
+                                class="btn btn-sm btn-danger">❌Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<style>
+    .btn-gradient-primary {
+        background: linear-gradient(45deg, #1d78d2, #47b8e0);
+        color: white;
+        border: none;
+    }
+
+    .btn-gradient-primary:hover {
+        background: linear-gradient(45deg, #1663a8, #379db6);
+        color: white;
+    }
+
+    .bg-gradient-dark {
+        background: linear-gradient(45deg, #343a40, #495057);
+    }
+
+    .table-striped tbody tr:hover {
+        background-color: #f8f9fa;
+    }
+</style>
